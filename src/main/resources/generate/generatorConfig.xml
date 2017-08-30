@@ -7,7 +7,8 @@
 <!-- 配置 tableName,使用 Run As Maven build 生成 dao model 层 -->
 <generatorConfiguration>
     <!-- 配置文件路径 -->
-    <properties url="${mybatis.generator.generatorConfig.properties}"/>
+    <!--<properties url="${mybatis.generator.generatorConfig.properties}"/>-->
+    <properties resource="generate/generatorConfig.properties"/>
 
     <!--数据库驱动包路径 -->
     <classPathEntry location="${drive.class.path}"/>
@@ -49,7 +50,9 @@
 
         </table>-->
         <!--<table tableName="user_media_group" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
-        <table tableName="app" domainObjectName="AdminOptLog" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />
+        <table tableName="app" domainObjectName="AdminOptLog" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
         <!--<table tableName="brand_recommend" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
         <!--<table tableName="user_article_group" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
 
