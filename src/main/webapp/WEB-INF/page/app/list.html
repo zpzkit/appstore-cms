@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>applist</title>
+    #include("sys/header.html")
+    <style>
+        #jqGrid td{
+            text-overflow : ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="rrapp">
+    <div class="panel-body" style="padding-bottom:0px;">
+        <div class="panel panel-default">
+            <div class="panel-heading">查询条件</div>
+            <div class="panel-body">
+                <form id="query-form" class="query-form" onsubmit="return false;">
+                    <div class="form-group" style="margin-top:15px">
+                        <table>
+                            <tr>
+                                <th>
+                                    <label>用户名：</label>
+                                </th>
+                                <td >
+                                    <input type="text" class="form-control" name="userName"/>
+                                </td>
+                                <th>
+                                    <label>状态：</label>
+                                </th>
+                                <td >
+                                    <select class="form-control" name="status">
+                                        <option value="">
+                                            请选择
+                                        </option>
+                                        <option value="1">
+                                            未处理
+                                        </option>
+                                        <option value="2">
+                                            审核失败
+                                        </option>
+                                        <option value="3">
+                                            审核成功
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <label>创建时间：</label>
+                                </th>
+                                <td colspan="3">
+                                    <input type="text" class="form-control" style="display: none" name="sTime" id="startTime"/>
+                                    <input type="text" class="form-control" style="display: none" name="eTime" id="endTime">
+                                    <div class="controls">
+                                        <div id="daterangepicker" class="input-prepend input-group" style="width:100%"  data-date-format="yyyy-mm-dd hh:ii:ss">
+                                        <span class="add-on input-group-addon">
+                                            <i class="glyphicon glyphicon-calendar fa fa-calendar">
+                                            </i>
+                                        </span>
+                                            <input type="text" id="searchDateRange"
+                                                   class="form-control" value="请选择起止时间" class="span4" readonly/>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="col-sm-12" style="text-align: center">
+                            <button type="reset"  class="btn btn-primary">重置</button>
+                            <button type="button"  id="btn_query" class="btn btn-primary">查询</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="grid-btn">
+            <button type="button" class="btn btn-default" @click="authDetail">查看详情</button>
+            <a id="resultExport" class="btn btn-default" @click="authExport">结果导出</a>
+        </div>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>
+</div>
+
+</body>
+</html>

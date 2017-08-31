@@ -50,8 +50,17 @@
 
         </table>-->
         <!--<table tableName="user_media_group" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
-        <table tableName="app" domainObjectName="AdminOptLog" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
-            <columnOverride column="address" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <table tableName="app" domainObjectName="appMap" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="logo_url" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="summary" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="alias_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="description_orig" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="operate_note" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="tags" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="app_from" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="support_hardware" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="hardware_tips" javaType="java.lang.String" jdbcType="VARCHAR" />
         </table>
         <!--<table tableName="brand_recommend" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
         <!--<table tableName="user_article_group" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
