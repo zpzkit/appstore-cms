@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mobvoi.appstore.cms.dao.appMapMapper">
-  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.cms.model.appMap">
+<mapper namespace="com.mobvoi.appstore.cms.mapper.AppMapMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.cms.dao.AppMap">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="description" jdbcType="VARCHAR" property="description" />
@@ -48,7 +48,7 @@
     delete from app
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mobvoi.appstore.cms.model.appMap">
+  <insert id="insert" parameterType="com.mobvoi.appstore.cms.dao.AppMap">
     insert into app (id, name, description, 
       developer_id, download_count, category_id, 
       logo_url, summary, is_deleted, 
@@ -70,7 +70,7 @@
       #{hardwareTips,jdbcType=VARCHAR}, #{showInWearAppstore,jdbcType=BIT}, #{showInPhoneAppstore,jdbcType=BIT}, 
       #{price,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="com.mobvoi.appstore.cms.model.appMap">
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.cms.dao.AppMap">
     insert into app
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -245,7 +245,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.cms.model.appMap">
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.cms.dao.AppMap">
     update app
     <set>
       <if test="name != null">
@@ -332,7 +332,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.cms.model.appMap">
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.cms.dao.AppMap">
     update app
     set name = #{name,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},

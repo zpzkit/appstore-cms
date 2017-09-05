@@ -1,8 +1,8 @@
-package com.mobvoi.appstore.cms.model;
+package com.mobvoi.appstore.cms.dao;
 
 import java.math.BigDecimal;
 
-public class appMap {
+public class AppMap {
     private Integer id;
 
     private String name;
