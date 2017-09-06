@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.cms.dao.SupportWatchModelMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.cms.model.SupportWatchModelKey">
+    <id column="appid" jdbcType="INTEGER" property="appid" />
+    <id column="watch" jdbcType="VARCHAR" property="watch" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.mobvoi.appstore.cms.model.SupportWatchModelKey">
+    delete from support_watch_model
+    where appid = #{appid,jdbcType=INTEGER}
+      and watch = #{watch,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.cms.model.SupportWatchModelKey">
+    insert into support_watch_model (appid, watch)
+    values (#{appid,jdbcType=INTEGER}, #{watch,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.cms.model.SupportWatchModelKey">
+    insert into support_watch_model
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="watch != null">
+        watch,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appid != null">
+        #{appid,jdbcType=INTEGER},
+      </if>
+      <if test="watch != null">
+        #{watch,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

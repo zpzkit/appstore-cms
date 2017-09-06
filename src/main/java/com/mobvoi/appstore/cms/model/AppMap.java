@@ -1,4 +1,4 @@
-package com.mobvoi.appstore.cms.dao;
+package com.mobvoi.appstore.cms.model;
 
 import java.math.BigDecimal;
 

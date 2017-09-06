@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.mobvoi.appstore.cms.mapper.AppMapMapper">
-  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.cms.dao.AppMap">
+<mapper namespace="com.mobvoi.appstore.cms.dao.AppMapMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.cms.model.AppMap">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="description" jdbcType="VARCHAR" property="description" />
@@ -30,7 +30,44 @@
     <result column="show_in_wear_appstore" jdbcType="BIT" property="showInWearAppstore" />
     <result column="show_in_phone_appstore" jdbcType="BIT" property="showInPhoneAppstore" />
     <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="update_time" jdbcType="DECIMAL" property="updateTime" />
   </resultMap>
+
+  <resultMap id="AppListResultMap" type="com.mobvoi.appstore.cms.model.AppListModel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="developer_id" jdbcType="INTEGER" property="developerId" />
+    <result column="download_count" jdbcType="INTEGER" property="downloadCount" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="logo_url" jdbcType="VARCHAR" property="logoUrl" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+    <result column="alias_name" jdbcType="VARCHAR" property="aliasName" />
+    <result column="description_orig" jdbcType="VARCHAR" property="descriptionOrig" />
+    <result column="operate_note" jdbcType="VARCHAR" property="operateNote" />
+    <result column="tags" jdbcType="VARCHAR" property="tags" />
+    <result column="second_category_id" jdbcType="INTEGER" property="secondCategoryId" />
+    <result column="third_category_id" jdbcType="INTEGER" property="thirdCategoryId" />
+    <result column="create_date" jdbcType="INTEGER" property="createDate" />
+    <result column="score" jdbcType="REAL" property="score" />
+    <result column="apk_package_name" jdbcType="VARCHAR" property="apkPackageName" />
+    <result column="rank_score" jdbcType="REAL" property="rankScore" />
+    <result column="recommend_similar" jdbcType="VARCHAR" property="recommendSimilar" />
+    <result column="wear_standalone" jdbcType="BIT" property="wearStandalone" />
+    <result column="app_from" jdbcType="VARCHAR" property="appFrom" />
+    <result column="support_hardware" jdbcType="VARCHAR" property="supportHardware" />
+    <result column="need_pay" jdbcType="BIT" property="needPay" />
+    <result column="hardware_tips" jdbcType="VARCHAR" property="hardwareTips" />
+    <result column="show_in_wear_appstore" jdbcType="BIT" property="showInWearAppstore" />
+    <result column="show_in_phone_appstore" jdbcType="BIT" property="showInPhoneAppstore" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="last_update_time" jdbcType="INTEGER" property="updateTime" />
+    <result column="comments_count" jdbcType="INTEGER" property="commentsCount" />
+    <result column="cpu" jdbcType="VARCHAR" property="cpu" />
+    <result column="watch" jdbcType="VARCHAR" property="watch" />
+  </resultMap>
+
   <sql id="Base_Column_List">
     id, name, description, developer_id, download_count, category_id, logo_url, summary, 
     is_deleted, alias_name, description_orig, operate_note, tags, second_category_id, 
@@ -48,7 +85,7 @@
     delete from app
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.mobvoi.appstore.cms.dao.AppMap">
+  <insert id="insert" parameterType="com.mobvoi.appstore.cms.model.AppMap">
     insert into app (id, name, description, 
       developer_id, download_count, category_id, 
       logo_url, summary, is_deleted, 
@@ -70,7 +107,7 @@
       #{hardwareTips,jdbcType=VARCHAR}, #{showInWearAppstore,jdbcType=BIT}, #{showInPhoneAppstore,jdbcType=BIT}, 
       #{price,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="com.mobvoi.appstore.cms.dao.AppMap">
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.cms.model.AppMap">
     insert into app
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -245,7 +282,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.cms.dao.AppMap">
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.cms.model.AppMap">
     update app
     <set>
       <if test="name != null">
@@ -332,7 +369,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.cms.dao.AppMap">
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.cms.model.AppMap">
     update app
     set name = #{name,jdbcType=VARCHAR},
       description = #{description,jdbcType=VARCHAR},
