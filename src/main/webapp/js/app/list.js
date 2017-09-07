@@ -12,14 +12,20 @@ $(function () {
         colModel: [
             { label: 'id', name: 'id', key:true, hidden:true},
             { label: '修改日志', name: 'id', width: 80},
-            { label: 'name', name: 'name', width: 200},
+            { label: 'name', name: 'name', sortable: true, width: 200},
             { label: '分类1', name: 'categoryId', width: 80},
-            { label: '是否上线', name: 'isDeleted', width: 80, formatter: 'checkbox', formatoptions: {disabled:false}},
-            { label: '是否手表展示', name: 'showInWearAppstore', width: 80, formatter: 'checkbox', formatoptions: {disabled:false}},
-            { label: '是否手机展示', name: 'showInPhoneAppstore', width: 80, formatter: 'checkbox', formatoptions: {disabled:false}},
-            { label: '是否需要支付', name: 'needPay', width: 80, formatter: 'checkbox', formatoptions: {disabled:false}},
-            { label: '是否手表独立', name: 'wearStandalone', width: 80, formatter: 'checkbox', formatoptions: {disabled:false}},
-            { label: '最后更新时间', name: 'updateTime', width: 80},
+            { label: '是否上线', name: 'isDeleted', width: 80,
+                formatter: 'checkbox', formatoptions: {disabled:false}},
+            { label: '是否手表展示', name: 'showInWearAppstore', width: 80,
+                formatter: 'checkbox', formatoptions: {disabled:false}},
+            { label: '是否手机展示', name: 'showInPhoneAppstore', width: 80,
+                formatter: 'checkbox', formatoptions: {disabled:false}},
+            { label: '是否需要支付', name: 'needPay', width: 80,
+                formatter: 'checkbox', formatoptions: {disabled:false}},
+            { label: '是否手表独立', name: 'wearStandalone', width: 80,
+                formatter: 'checkbox', formatoptions: {disabled:false}},
+            { label: '最后更新时间', name: 'lastUpdateTime', width: 150,
+                editable:false,formatter:"date",formatoptions: {srcformat:'u',newformat:'Y-m-d H:i:s'}},
             { label: '下载次数', name: 'downloadCount', width: 80},
             { label: '评论数', name: 'commentsCount', width: 80},
             { label: '价格', name: 'price', width: 80},
@@ -27,7 +33,8 @@ $(function () {
             { label: '包名', name: 'apkPackageName', width: 80},
             { label: '总结', name: 'summary', width: 80},
             { label: 'operate_note', name: 'operateNote', width: 80},
-            { label: '创建时间', name: 'createDate', width: 80},
+            { label: '创建时间', name: 'createDate', width: 150,
+                editable:false,formatter:"date",formatoptions: {srcformat:'u',newformat:'Y-m-d H:i:s'}},
             { label: 'score', name: 'score', width: 80},
             { label: 'rank-score', name: 'rankScore', width: 80},
             { label: 'app来源', name: 'appFrom', width: 80},
@@ -59,13 +66,28 @@ $(function () {
             rows:"pageSize",
             order: "order"
         },
-        shrinkToFit:false,
-        autoScroll: false
+        shrinkToFit:false,  //自适应宽度
+        autoScroll: false   //左右滚动
     })
     $("#btn_query").click(function(){
-
         //传入查询条件参数
         $("#jqGrid").jqGrid("setGridParam",{page:1,url:queryUrl + "?" + $("#query-form").serialize()}).trigger("reloadGrid");
         Console.log($("#query-form").serialize());
     });
+})
+
+var vm = new Vue({
+    el:'#rrapp',
+    data:{
+
+    },
+    methods: {
+        update: function (event) {
+            var appId = getSelectedRow();
+            if(appId == null){
+                return ;
+            }
+            location.href = "appEdit.html?appId="+appId;
+        },
+    }
 })

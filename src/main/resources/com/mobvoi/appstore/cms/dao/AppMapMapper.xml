@@ -30,7 +30,6 @@
     <result column="show_in_wear_appstore" jdbcType="BIT" property="showInWearAppstore" />
     <result column="show_in_phone_appstore" jdbcType="BIT" property="showInPhoneAppstore" />
     <result column="price" jdbcType="DECIMAL" property="price" />
-    <result column="update_time" jdbcType="DECIMAL" property="updateTime" />
   </resultMap>
 
   <resultMap id="AppListResultMap" type="com.mobvoi.appstore.cms.model.AppListModel">
@@ -62,7 +61,7 @@
     <result column="show_in_wear_appstore" jdbcType="BIT" property="showInWearAppstore" />
     <result column="show_in_phone_appstore" jdbcType="BIT" property="showInPhoneAppstore" />
     <result column="price" jdbcType="DECIMAL" property="price" />
-    <result column="last_update_time" jdbcType="INTEGER" property="updateTime" />
+    <result column="last_update_time" jdbcType="INTEGER" property="lastUpdateTime" />
     <result column="comments_count" jdbcType="INTEGER" property="commentsCount" />
     <result column="cpu" jdbcType="VARCHAR" property="cpu" />
     <result column="watch" jdbcType="VARCHAR" property="watch" />
