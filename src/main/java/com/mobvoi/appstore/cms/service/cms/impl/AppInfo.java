@@ -55,6 +55,24 @@ public class AppInfo implements AppInfoService<AppListModel>{
         app.setWatch(supportWatchModelKey.getWatch());
       }
 
+      if (app.getCategoryId() == 0) {
+        app.setCategory1("未定义");
+      }else {
+        Category category1 = categoryMapper.selectByPrimaryKey(app.getCategoryId());
+        app.setCategory1(category1.getCategoryName());
+      }
+      if (app.getSecondCategoryId() == 0) {
+        app.setCategory2("未定义");
+      }else {
+        Category category2 = categoryMapper.selectByPrimaryKey(app.getSecondCategoryId());
+        app.setCategory2(category2.getCategoryName());
+      }
+      if (app.getThirdCategoryId() == 0) {
+        app.setCategory3("未定义");
+      }else {
+        Category category3 = categoryMapper.selectByPrimaryKey(app.getThirdCategoryId());
+        app.setCategory3(category3.getCategoryName());
+      }
     });
     return appMaps;
   }

@@ -13,7 +13,7 @@ $(function () {
             { label: 'id', name: 'id', key:true, hidden:true},
             { label: '修改日志', name: 'id', width: 80},
             { label: 'name', name: 'name', sortable: true, width: 200},
-            { label: '分类1', name: 'categoryId', width: 80},
+            { label: '分类1', name: 'category1', width: 80},
             { label: '是否下线', name: 'isDeleted', width: 80,
                 formatter: 'checkbox', formatoptions: {disabled:false}},
             { label: '是否手表展示', name: 'showInWearAppstore', width: 80,
@@ -43,13 +43,13 @@ $(function () {
             { label: 'cpu', name: 'cpu', width: 80},
             { label: 'watch', name: 'watch', width: 80},
             { label: '修复apk', name: 'summary', width: 80},   //这是一个button
-            { label: '分类2', name: 'secondCategoryId', width: 80},
-            { label: '分类3', name: 'thirdCategoryId', width: 80}
+            { label: '分类2', name: 'category2', width: 80},
+            { label: '分类3', name: 'category3', width: 80}
         ],
         viewrecords: true,
         autowidth: true,
-        height: 400,
-        rowNum: 10,
+        height: '100%',
+        rowNum: 30,
         rowList : [10,30,50],
         rownumbers: true,
         rownumWidth: 50,
