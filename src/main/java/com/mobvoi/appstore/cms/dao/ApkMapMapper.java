@@ -4,6 +4,7 @@ import com.mobvoi.appstore.cms.model.ApkMap;
 import com.mobvoi.appstore.cms.model.ApkMapKey;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 public interface ApkMapMapper {
     int deleteByPrimaryKey(ApkMapKey key);
@@ -18,6 +19,9 @@ public interface ApkMapMapper {
 
     int updateByPrimaryKey(ApkMap record);
 
-    @Select("select * from apk where appid = #{appid}")
-    ApkMap selectByAppid(@Param("appid") int appid);
+    @Select("select * from apk where appid = #{appid} order by update_time desc limit 1")
+    ApkMap selectNewApkByAppid(@Param("appid") int appid);
+
+    @Update("update apk set cpu = #{cpu} where appid = #{appid}")
+    int updateApkInfo(@Param("cpu") String cpu, @Param("appid") int appid);
 }

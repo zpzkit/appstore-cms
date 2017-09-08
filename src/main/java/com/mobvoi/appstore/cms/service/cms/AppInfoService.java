@@ -7,5 +7,5 @@ import java.util.List;
  */
 public interface AppInfoService<T> {
 
-  List<T> getAppInfoDetail(int pageNum, int pageSize, boolean count);
+  List<T> getAppInfoListDetail(int pageNum, int pageSize, boolean count);
 }

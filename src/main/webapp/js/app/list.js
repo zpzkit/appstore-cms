@@ -14,7 +14,7 @@ $(function () {
             { label: '修改日志', name: 'id', width: 80},
             { label: 'name', name: 'name', sortable: true, width: 200},
             { label: '分类1', name: 'categoryId', width: 80},
-            { label: '是否上线', name: 'isDeleted', width: 80,
+            { label: '是否下线', name: 'isDeleted', width: 80,
                 formatter: 'checkbox', formatoptions: {disabled:false}},
             { label: '是否手表展示', name: 'showInWearAppstore', width: 80,
                 formatter: 'checkbox', formatoptions: {disabled:false}},
@@ -83,11 +83,11 @@ var vm = new Vue({
     },
     methods: {
         update: function (event) {
-            var appId = getSelectedRow();
-            if(appId == null){
+            var id = getSelectedRow();
+            if(id == null){
                 return ;
             }
-            location.href = "appEdit.html?appId="+appId;
+            location.href = "appEdit.html?appid="+id;
         },
     }
 })

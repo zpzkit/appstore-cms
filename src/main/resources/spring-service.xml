@@ -17,9 +17,10 @@
 
 	<context:component-scan base-package="com.mobvoi.appstore.cms" />
 	<context:annotation-config />
-	<tx:annotation-driven />
+	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<mvc:default-servlet-handler />
-	
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+
 	<context:property-placeholder location="classpath:db.properties,classpath:config.properties" />
 	
 	<import resource="classpath:spring-shiro.xml"/>
@@ -122,6 +123,7 @@
 		</property>
 	</bean>
 
+    <!--事务管理配置-->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource">

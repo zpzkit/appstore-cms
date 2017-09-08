@@ -19,7 +19,10 @@ public interface CommentsMapper {
 
     int updateByPrimaryKey(Comments record);
 
-    @Select("select count(*) from comments where appid = #{appid}")
+    @Select("select * from comments where appid = #{appid}")
     @ResultMap("BaseResultMap")
+    Comments selectOneByAppid(@Param("appid") int appid);
+
+    @Select("select count(*) from comments where appid = #{appid}")
     Integer selectCommentsCountByAppid(@Param("appid") int appid);
 }
