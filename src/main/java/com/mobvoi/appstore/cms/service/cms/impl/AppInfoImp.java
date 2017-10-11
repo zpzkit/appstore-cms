@@ -17,7 +17,7 @@ import java.util.List;
  * Created by watson on 2017/9/5.
  */
 @Service
-public class AppInfo implements AppInfoService<AppListModel>{
+public class AppInfoImp implements AppInfoService<AppListModel>{
 
   @Autowired
   AppMapMapper appMapMapper;
@@ -147,5 +147,16 @@ public class AppInfo implements AppInfoService<AppListModel>{
 
     return appMap;
   }
+
+  public List<AppListModel> SearchAppList(int pageNum, int pageSize, boolean hasCount, long startT, long endT) {
+
+    return null;
+  }
+
+  public AppListModel SearchAppById(int appId) {
+
+    return null;
+  }
+
 
 }

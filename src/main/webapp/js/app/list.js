@@ -74,6 +74,10 @@ $(function () {
         $("#jqGrid").jqGrid("setGridParam",{page:1,url:queryUrl + "?" + $("#query-form").serialize()}).trigger("reloadGrid");
         Console.log($("#query-form").serialize());
     });
+
+
+    //初始化日期选择控件 common.js
+    initDaterangepicker("daterangepicker","startTime","endTime","searchDateRange");
 })
 
 var vm = new Vue({
