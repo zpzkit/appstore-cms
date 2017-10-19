@@ -1,15 +1,12 @@
 package com.mobvoi.appstore.cms.controller.operation;
 
 import com.github.pagehelper.PageInfo;
-import com.mobvoi.appstore.cms.model.AppListModel;
-import com.mobvoi.appstore.cms.model.Category;
-import com.mobvoi.appstore.cms.service.cms.impl.AppInfoImp;
-import com.mobvoi.appstore.cms.utils.R;
+import com.mobvoi.appstore.model.AppListModel;
+import com.mobvoi.appstore.model.Category;
+import com.mobvoi.appstore.service.cms.impl.AppInfoImp;
+import com.mobvoi.appstore.utils.R;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -72,4 +69,13 @@ public class ListApp {
     PageInfo<AppListModel> pageInfo = new PageInfo<>(appListModels);
     return R.ok().put("page", pageInfo);
   }
+
+  @RequestMapping(value = "test/{appid}", produces="application/json;charset=UTF-8")
+  @ResponseBody
+  public Object searchApp(@PathVariable Integer appid) {
+    AppListModel appInfoDetail = appInfoImp.getAppInfoDetail(appid);
+    return appInfoDetail;
+
+  }
+
 }

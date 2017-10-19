@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.AppstoreTopicListMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.AppstoreTopicList">
+    <id column="topic_id" jdbcType="INTEGER" property="topicId" />
+    <result column="name_ch" jdbcType="CHAR" property="nameCh" />
+    <result column="name_en" jdbcType="CHAR" property="nameEn" />
+    <result column="is_show" jdbcType="BIT" property="isShow" />
+    <result column="show_num" jdbcType="INTEGER" property="showNum" />
+    <result column="priority" jdbcType="BIT" property="priority" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    topic_id, name_ch, name_en, is_show, show_num, priority
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from appstore_topic_list
+    where topic_id = #{topicId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from appstore_topic_list
+    where topic_id = #{topicId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.AppstoreTopicList">
+    insert into appstore_topic_list (topic_id, name_ch, name_en, 
+      is_show, show_num, priority)
+    values (#{topicId,jdbcType=INTEGER}, #{nameCh,jdbcType=CHAR}, #{nameEn,jdbcType=CHAR}, 
+      #{isShow,jdbcType=BIT}, #{showNum,jdbcType=INTEGER}, #{priority,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.AppstoreTopicList">
+    insert into appstore_topic_list
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="topicId != null">
+        topic_id,
+      </if>
+      <if test="nameCh != null">
+        name_ch,
+      </if>
+      <if test="nameEn != null">
+        name_en,
+      </if>
+      <if test="isShow != null">
+        is_show,
+      </if>
+      <if test="showNum != null">
+        show_num,
+      </if>
+      <if test="priority != null">
+        priority,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="topicId != null">
+        #{topicId,jdbcType=INTEGER},
+      </if>
+      <if test="nameCh != null">
+        #{nameCh,jdbcType=CHAR},
+      </if>
+      <if test="nameEn != null">
+        #{nameEn,jdbcType=CHAR},
+      </if>
+      <if test="isShow != null">
+        #{isShow,jdbcType=BIT},
+      </if>
+      <if test="showNum != null">
+        #{showNum,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.model.AppstoreTopicList">
+    update appstore_topic_list
+    <set>
+      <if test="nameCh != null">
+        name_ch = #{nameCh,jdbcType=CHAR},
+      </if>
+      <if test="nameEn != null">
+        name_en = #{nameEn,jdbcType=CHAR},
+      </if>
+      <if test="isShow != null">
+        is_show = #{isShow,jdbcType=BIT},
+      </if>
+      <if test="showNum != null">
+        show_num = #{showNum,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null">
+        priority = #{priority,jdbcType=BIT},
+      </if>
+    </set>
+    where topic_id = #{topicId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.model.AppstoreTopicList">
+    update appstore_topic_list
+    set name_ch = #{nameCh,jdbcType=CHAR},
+      name_en = #{nameEn,jdbcType=CHAR},
+      is_show = #{isShow,jdbcType=BIT},
+      show_num = #{showNum,jdbcType=INTEGER},
+      priority = #{priority,jdbcType=BIT}
+    where topic_id = #{topicId,jdbcType=INTEGER}
+  </update>
+</mapper>

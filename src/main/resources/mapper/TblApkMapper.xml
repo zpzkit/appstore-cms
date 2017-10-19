@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.TblApkMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.TblApk">
+    <result column="apk_id" jdbcType="INTEGER" property="apkId" />
+    <result column="apk_url" jdbcType="VARCHAR" property="apkUrl" />
+    <result column="package_name" jdbcType="VARCHAR" property="packageName" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="fileSize" jdbcType="BIGINT" property="filesize" />
+    <result column="wear_apk_url" jdbcType="VARCHAR" property="wearApkUrl" />
+    <result column="wear_apk_size" jdbcType="BIGINT" property="wearApkSize" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="upload_time" jdbcType="TIMESTAMP" property="uploadTime" />
+    <result column="pic_url" jdbcType="VARCHAR" property="picUrl" />
+    <result column="logo_url" jdbcType="VARCHAR" property="logoUrl" />
+    <result column="app_id" jdbcType="BIGINT" property="appId" />
+    <result column="version_code" jdbcType="INTEGER" property="versionCode" />
+    <result column="apk_md5" jdbcType="VARCHAR" property="apkMd5" />
+  </resultMap>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.TblApk">
+    insert into tbl_apk (apk_id, apk_url, package_name, 
+      version, fileSize, wear_apk_url, 
+      wear_apk_size, update_time, upload_time, 
+      pic_url, logo_url, app_id, 
+      version_code, apk_md5)
+    values (#{apkId,jdbcType=INTEGER}, #{apkUrl,jdbcType=VARCHAR}, #{packageName,jdbcType=VARCHAR}, 
+      #{version,jdbcType=VARCHAR}, #{filesize,jdbcType=BIGINT}, #{wearApkUrl,jdbcType=VARCHAR}, 
+      #{wearApkSize,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, #{uploadTime,jdbcType=TIMESTAMP}, 
+      #{picUrl,jdbcType=VARCHAR}, #{logoUrl,jdbcType=VARCHAR}, #{appId,jdbcType=BIGINT}, 
+      #{versionCode,jdbcType=INTEGER}, #{apkMd5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.TblApk">
+    insert into tbl_apk
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="apkId != null">
+        apk_id,
+      </if>
+      <if test="apkUrl != null">
+        apk_url,
+      </if>
+      <if test="packageName != null">
+        package_name,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="filesize != null">
+        fileSize,
+      </if>
+      <if test="wearApkUrl != null">
+        wear_apk_url,
+      </if>
+      <if test="wearApkSize != null">
+        wear_apk_size,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="uploadTime != null">
+        upload_time,
+      </if>
+      <if test="picUrl != null">
+        pic_url,
+      </if>
+      <if test="logoUrl != null">
+        logo_url,
+      </if>
+      <if test="appId != null">
+        app_id,
+      </if>
+      <if test="versionCode != null">
+        version_code,
+      </if>
+      <if test="apkMd5 != null">
+        apk_md5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="apkId != null">
+        #{apkId,jdbcType=INTEGER},
+      </if>
+      <if test="apkUrl != null">
+        #{apkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="packageName != null">
+        #{packageName,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="filesize != null">
+        #{filesize,jdbcType=BIGINT},
+      </if>
+      <if test="wearApkUrl != null">
+        #{wearApkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="wearApkSize != null">
+        #{wearApkSize,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploadTime != null">
+        #{uploadTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="picUrl != null">
+        #{picUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="logoUrl != null">
+        #{logoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=BIGINT},
+      </if>
+      <if test="versionCode != null">
+        #{versionCode,jdbcType=INTEGER},
+      </if>
+      <if test="apkMd5 != null">
+        #{apkMd5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

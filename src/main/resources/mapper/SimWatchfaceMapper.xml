@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.SimWatchfaceMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.SimWatchface">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="similar" jdbcType="VARCHAR" property="similar" />
+    <result column="last_update_time" jdbcType="VARCHAR" property="lastUpdateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, similar, last_update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sim_watchface
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sim_watchface
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.SimWatchface">
+    insert into sim_watchface (id, similar, last_update_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{similar,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.SimWatchface">
+    insert into sim_watchface
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="similar != null">
+        similar,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="similar != null">
+        #{similar,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.model.SimWatchface">
+    update sim_watchface
+    <set>
+      <if test="similar != null">
+        similar = #{similar,jdbcType=VARCHAR},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.model.SimWatchface">
+    update sim_watchface
+    set similar = #{similar,jdbcType=VARCHAR},
+      last_update_time = #{lastUpdateTime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

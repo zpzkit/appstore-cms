@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.ApkMapMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.ApkMap">
+    <id column="appid" jdbcType="INTEGER" property="appid" />
+    <id column="version_code" jdbcType="INTEGER" property="versionCode" />
+    <id column="cpu" jdbcType="VARCHAR" property="cpu" />
+    <result column="apk_url" jdbcType="VARCHAR" property="apkUrl" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="file_size" jdbcType="INTEGER" property="fileSize" />
+    <result column="need_aw" jdbcType="BIT" property="needAw" />
+    <result column="changelog" jdbcType="VARCHAR" property="changelog" />
+    <result column="update_time" jdbcType="INTEGER" property="updateTime" />
+    <result column="apk_md5" jdbcType="VARCHAR" property="apkMd5" />
+    <result column="wear_file_size" jdbcType="INTEGER" property="wearFileSize" />
+    <result column="wear_apk_md5" jdbcType="VARCHAR" property="wearApkMd5" />
+    <result column="wear_version_code" jdbcType="INTEGER" property="wearVersionCode" />
+    <result column="wear_version_name" jdbcType="VARCHAR" property="wearVersionName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    appid, version_code, cpu, apk_url, version, file_size, need_aw, changelog, update_time, 
+    apk_md5, wear_file_size, wear_apk_md5, wear_version_code, wear_version_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.mobvoi.appstore.model.ApkMapKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from apk
+    where appid = #{appid,jdbcType=INTEGER}
+      and version_code = #{versionCode,jdbcType=INTEGER}
+      and cpu = #{cpu,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.mobvoi.appstore.model.ApkMapKey">
+    delete from apk
+    where appid = #{appid,jdbcType=INTEGER}
+      and version_code = #{versionCode,jdbcType=INTEGER}
+      and cpu = #{cpu,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.ApkMap">
+    insert into apk (appid, version_code, cpu, 
+      apk_url, version, file_size, 
+      need_aw, changelog, update_time, 
+      apk_md5, wear_file_size, wear_apk_md5, 
+      wear_version_code, wear_version_name)
+    values (#{appid,jdbcType=INTEGER}, #{versionCode,jdbcType=INTEGER}, #{cpu,jdbcType=VARCHAR}, 
+      #{apkUrl,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, #{fileSize,jdbcType=INTEGER}, 
+      #{needAw,jdbcType=BIT}, #{changelog,jdbcType=VARCHAR}, #{updateTime,jdbcType=INTEGER}, 
+      #{apkMd5,jdbcType=VARCHAR}, #{wearFileSize,jdbcType=INTEGER}, #{wearApkMd5,jdbcType=VARCHAR}, 
+      #{wearVersionCode,jdbcType=INTEGER}, #{wearVersionName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.ApkMap">
+    insert into apk
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="versionCode != null">
+        version_code,
+      </if>
+      <if test="cpu != null">
+        cpu,
+      </if>
+      <if test="apkUrl != null">
+        apk_url,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="fileSize != null">
+        file_size,
+      </if>
+      <if test="needAw != null">
+        need_aw,
+      </if>
+      <if test="changelog != null">
+        changelog,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="apkMd5 != null">
+        apk_md5,
+      </if>
+      <if test="wearFileSize != null">
+        wear_file_size,
+      </if>
+      <if test="wearApkMd5 != null">
+        wear_apk_md5,
+      </if>
+      <if test="wearVersionCode != null">
+        wear_version_code,
+      </if>
+      <if test="wearVersionName != null">
+        wear_version_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="appid != null">
+        #{appid,jdbcType=INTEGER},
+      </if>
+      <if test="versionCode != null">
+        #{versionCode,jdbcType=INTEGER},
+      </if>
+      <if test="cpu != null">
+        #{cpu,jdbcType=VARCHAR},
+      </if>
+      <if test="apkUrl != null">
+        #{apkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null">
+        #{fileSize,jdbcType=INTEGER},
+      </if>
+      <if test="needAw != null">
+        #{needAw,jdbcType=BIT},
+      </if>
+      <if test="changelog != null">
+        #{changelog,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="apkMd5 != null">
+        #{apkMd5,jdbcType=VARCHAR},
+      </if>
+      <if test="wearFileSize != null">
+        #{wearFileSize,jdbcType=INTEGER},
+      </if>
+      <if test="wearApkMd5 != null">
+        #{wearApkMd5,jdbcType=VARCHAR},
+      </if>
+      <if test="wearVersionCode != null">
+        #{wearVersionCode,jdbcType=INTEGER},
+      </if>
+      <if test="wearVersionName != null">
+        #{wearVersionName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.model.ApkMap">
+    update apk
+    <set>
+      <if test="apkUrl != null">
+        apk_url = #{apkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="fileSize != null">
+        file_size = #{fileSize,jdbcType=INTEGER},
+      </if>
+      <if test="needAw != null">
+        need_aw = #{needAw,jdbcType=BIT},
+      </if>
+      <if test="changelog != null">
+        changelog = #{changelog,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=INTEGER},
+      </if>
+      <if test="apkMd5 != null">
+        apk_md5 = #{apkMd5,jdbcType=VARCHAR},
+      </if>
+      <if test="wearFileSize != null">
+        wear_file_size = #{wearFileSize,jdbcType=INTEGER},
+      </if>
+      <if test="wearApkMd5 != null">
+        wear_apk_md5 = #{wearApkMd5,jdbcType=VARCHAR},
+      </if>
+      <if test="wearVersionCode != null">
+        wear_version_code = #{wearVersionCode,jdbcType=INTEGER},
+      </if>
+      <if test="wearVersionName != null">
+        wear_version_name = #{wearVersionName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where appid = #{appid,jdbcType=INTEGER}
+      and version_code = #{versionCode,jdbcType=INTEGER}
+      and cpu = #{cpu,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.model.ApkMap">
+    update apk
+    set apk_url = #{apkUrl,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      file_size = #{fileSize,jdbcType=INTEGER},
+      need_aw = #{needAw,jdbcType=BIT},
+      changelog = #{changelog,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=INTEGER},
+      apk_md5 = #{apkMd5,jdbcType=VARCHAR},
+      wear_file_size = #{wearFileSize,jdbcType=INTEGER},
+      wear_apk_md5 = #{wearApkMd5,jdbcType=VARCHAR},
+      wear_version_code = #{wearVersionCode,jdbcType=INTEGER},
+      wear_version_name = #{wearVersionName,jdbcType=VARCHAR}
+    where appid = #{appid,jdbcType=INTEGER}
+      and version_code = #{versionCode,jdbcType=INTEGER}
+      and cpu = #{cpu,jdbcType=VARCHAR}
+  </update>
+</mapper>

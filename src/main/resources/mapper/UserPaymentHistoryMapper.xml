@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.UserPaymentHistoryMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.UserPaymentHistory">
+    <id column="wwid" jdbcType="VARCHAR" property="wwid" />
+    <id column="appid" jdbcType="INTEGER" property="appid" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    wwid, appid, price, time, order_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.mobvoi.appstore.model.UserPaymentHistoryKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_payment_history
+    where wwid = #{wwid,jdbcType=VARCHAR}
+      and appid = #{appid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.mobvoi.appstore.model.UserPaymentHistoryKey">
+    delete from user_payment_history
+    where wwid = #{wwid,jdbcType=VARCHAR}
+      and appid = #{appid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.UserPaymentHistory">
+    insert into user_payment_history (wwid, appid, price, 
+      time, order_id)
+    values (#{wwid,jdbcType=VARCHAR}, #{appid,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, 
+      #{time,jdbcType=TIMESTAMP}, #{orderId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.UserPaymentHistory">
+    insert into user_payment_history
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wwid != null">
+        wwid,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wwid != null">
+        #{wwid,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.model.UserPaymentHistory">
+    update user_payment_history
+    <set>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where wwid = #{wwid,jdbcType=VARCHAR}
+      and appid = #{appid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.model.UserPaymentHistory">
+    update user_payment_history
+    set price = #{price,jdbcType=DECIMAL},
+      time = #{time,jdbcType=TIMESTAMP},
+      order_id = #{orderId,jdbcType=VARCHAR}
+    where wwid = #{wwid,jdbcType=VARCHAR}
+      and appid = #{appid,jdbcType=INTEGER}
+  </update>
+</mapper>

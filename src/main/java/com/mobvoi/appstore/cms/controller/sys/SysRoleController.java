@@ -1,15 +1,14 @@
 package com.mobvoi.appstore.cms.controller.sys;
 
-import com.mobvoi.appstore.cms.service.SysRoleMenuService;
-import com.mobvoi.appstore.cms.service.SysRoleService;
-import com.mobvoi.appstore.cms.utils.PageUtils;
-import com.mobvoi.appstore.cms.utils.R;
-import com.mobvoi.appstore.cms.entity.SysRoleEntity;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.mobvoi.appstore.model.sys.SysRoleEntity;
+import com.mobvoi.appstore.service.SysRoleMenuService;
+import com.mobvoi.appstore.service.SysRoleService;
+import com.mobvoi.appstore.utils.PageUtils;
+import com.mobvoi.appstore.utils.R;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;

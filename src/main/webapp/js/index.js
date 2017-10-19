@@ -36,11 +36,11 @@ var vm = new Vue({
 				vm.menuList = r.menuList;
 			});
 		},
-		getUser: function(){
-			$.getJSON("sys/user/info", function(r){
-				vm.user = r.user;
-			});
-		},
+		// getUser: function(){
+		// 	$.getJSON("sys/user/info", function(r){
+		// 		vm.user = r.user;
+		// 	});
+		// },
 		updatePassword: function(){
 			layer.open({
 				type: 1,
@@ -81,7 +81,7 @@ var vm = new Vue({
 });
 
 vm.menuList();
-vm.getUser();
+// vm.getUser();
 
 function routerList(router, menuList){
 	for(var key in menuList){

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.UserProfileWatchfaceMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.UserProfileWatchface">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="timestamp" jdbcType="VARCHAR" property="timestamp" />
+    <result column="watchface$delete_ga" jdbcType="VARCHAR" property="watchfaceDeleteGa" />
+    <result column="watchface$download_ga" jdbcType="VARCHAR" property="watchfaceDownloadGa" />
+    <result column="watchface$biaoqian_ga" jdbcType="VARCHAR" property="watchfaceBiaoqianGa" />
+    <result column="watchface$biaoqian_download_ga" jdbcType="VARCHAR" property="watchfaceBiaoqianDownloadGa" />
+    <result column="watchface$biaoqian_delete_ga" jdbcType="VARCHAR" property="watchfaceBiaoqianDeleteGa" />
+    <result column="watchface$category_delete_ga" jdbcType="VARCHAR" property="watchfaceCategoryDeleteGa" />
+    <result column="watchface$category_download_ga" jdbcType="VARCHAR" property="watchfaceCategoryDownloadGa" />
+    <result column="watchface_test$download_ga" jdbcType="VARCHAR" property="watchfaceTestDownloadGa" />
+    <result column="watchface_test$biaoqian_download_ga" jdbcType="VARCHAR" property="watchfaceTestBiaoqianDownloadGa" />
+    <result column="watchface_test$category_download_ga" jdbcType="VARCHAR" property="watchfaceTestCategoryDownloadGa" />
+    <result column="watchface_test$delete_ga" jdbcType="VARCHAR" property="watchfaceTestDeleteGa" />
+    <result column="watchface_test$biaoqian_delete_ga" jdbcType="VARCHAR" property="watchfaceTestBiaoqianDeleteGa" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, timestamp, watchface$delete_ga, watchface$download_ga, watchface$biaoqian_ga, 
+    watchface$biaoqian_download_ga, watchface$biaoqian_delete_ga, watchface$category_delete_ga, 
+    watchface$category_download_ga, watchface_test$download_ga, watchface_test$biaoqian_download_ga, 
+    watchface_test$category_download_ga, watchface_test$delete_ga, watchface_test$biaoqian_delete_ga
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_profile_watchface
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from user_profile_watchface
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.UserProfileWatchface">
+    insert into user_profile_watchface (id, user_id, timestamp, 
+      watchface$delete_ga, watchface$download_ga, 
+      watchface$biaoqian_ga, watchface$biaoqian_download_ga, 
+      watchface$biaoqian_delete_ga, watchface$category_delete_ga, 
+      watchface$category_download_ga, watchface_test$download_ga, 
+      watchface_test$biaoqian_download_ga, watchface_test$category_download_ga, 
+      watchface_test$delete_ga, watchface_test$biaoqian_delete_ga
+      )
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=VARCHAR}, #{timestamp,jdbcType=VARCHAR}, 
+      #{watchfaceDeleteGa,jdbcType=VARCHAR}, #{watchfaceDownloadGa,jdbcType=VARCHAR}, 
+      #{watchfaceBiaoqianGa,jdbcType=VARCHAR}, #{watchfaceBiaoqianDownloadGa,jdbcType=VARCHAR}, 
+      #{watchfaceBiaoqianDeleteGa,jdbcType=VARCHAR}, #{watchfaceCategoryDeleteGa,jdbcType=VARCHAR}, 
+      #{watchfaceCategoryDownloadGa,jdbcType=VARCHAR}, #{watchfaceTestDownloadGa,jdbcType=VARCHAR}, 
+      #{watchfaceTestBiaoqianDownloadGa,jdbcType=VARCHAR}, #{watchfaceTestCategoryDownloadGa,jdbcType=VARCHAR}, 
+      #{watchfaceTestDeleteGa,jdbcType=VARCHAR}, #{watchfaceTestBiaoqianDeleteGa,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.UserProfileWatchface">
+    insert into user_profile_watchface
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="timestamp != null">
+        timestamp,
+      </if>
+      <if test="watchfaceDeleteGa != null">
+        watchface$delete_ga,
+      </if>
+      <if test="watchfaceDownloadGa != null">
+        watchface$download_ga,
+      </if>
+      <if test="watchfaceBiaoqianGa != null">
+        watchface$biaoqian_ga,
+      </if>
+      <if test="watchfaceBiaoqianDownloadGa != null">
+        watchface$biaoqian_download_ga,
+      </if>
+      <if test="watchfaceBiaoqianDeleteGa != null">
+        watchface$biaoqian_delete_ga,
+      </if>
+      <if test="watchfaceCategoryDeleteGa != null">
+        watchface$category_delete_ga,
+      </if>
+      <if test="watchfaceCategoryDownloadGa != null">
+        watchface$category_download_ga,
+      </if>
+      <if test="watchfaceTestDownloadGa != null">
+        watchface_test$download_ga,
+      </if>
+      <if test="watchfaceTestBiaoqianDownloadGa != null">
+        watchface_test$biaoqian_download_ga,
+      </if>
+      <if test="watchfaceTestCategoryDownloadGa != null">
+        watchface_test$category_download_ga,
+      </if>
+      <if test="watchfaceTestDeleteGa != null">
+        watchface_test$delete_ga,
+      </if>
+      <if test="watchfaceTestBiaoqianDeleteGa != null">
+        watchface_test$biaoqian_delete_ga,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="timestamp != null">
+        #{timestamp,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceDeleteGa != null">
+        #{watchfaceDeleteGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceDownloadGa != null">
+        #{watchfaceDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceBiaoqianGa != null">
+        #{watchfaceBiaoqianGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceBiaoqianDownloadGa != null">
+        #{watchfaceBiaoqianDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceBiaoqianDeleteGa != null">
+        #{watchfaceBiaoqianDeleteGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceCategoryDeleteGa != null">
+        #{watchfaceCategoryDeleteGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceCategoryDownloadGa != null">
+        #{watchfaceCategoryDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceTestDownloadGa != null">
+        #{watchfaceTestDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceTestBiaoqianDownloadGa != null">
+        #{watchfaceTestBiaoqianDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceTestCategoryDownloadGa != null">
+        #{watchfaceTestCategoryDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceTestDeleteGa != null">
+        #{watchfaceTestDeleteGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceTestBiaoqianDeleteGa != null">
+        #{watchfaceTestBiaoqianDeleteGa,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.model.UserProfileWatchface">
+    update user_profile_watchface
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="timestamp != null">
+        timestamp = #{timestamp,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceDeleteGa != null">
+        watchface$delete_ga = #{watchfaceDeleteGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceDownloadGa != null">
+        watchface$download_ga = #{watchfaceDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceBiaoqianGa != null">
+        watchface$biaoqian_ga = #{watchfaceBiaoqianGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceBiaoqianDownloadGa != null">
+        watchface$biaoqian_download_ga = #{watchfaceBiaoqianDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceBiaoqianDeleteGa != null">
+        watchface$biaoqian_delete_ga = #{watchfaceBiaoqianDeleteGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceCategoryDeleteGa != null">
+        watchface$category_delete_ga = #{watchfaceCategoryDeleteGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceCategoryDownloadGa != null">
+        watchface$category_download_ga = #{watchfaceCategoryDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceTestDownloadGa != null">
+        watchface_test$download_ga = #{watchfaceTestDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceTestBiaoqianDownloadGa != null">
+        watchface_test$biaoqian_download_ga = #{watchfaceTestBiaoqianDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceTestCategoryDownloadGa != null">
+        watchface_test$category_download_ga = #{watchfaceTestCategoryDownloadGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceTestDeleteGa != null">
+        watchface_test$delete_ga = #{watchfaceTestDeleteGa,jdbcType=VARCHAR},
+      </if>
+      <if test="watchfaceTestBiaoqianDeleteGa != null">
+        watchface_test$biaoqian_delete_ga = #{watchfaceTestBiaoqianDeleteGa,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.model.UserProfileWatchface">
+    update user_profile_watchface
+    set user_id = #{userId,jdbcType=VARCHAR},
+      timestamp = #{timestamp,jdbcType=VARCHAR},
+      watchface$delete_ga = #{watchfaceDeleteGa,jdbcType=VARCHAR},
+      watchface$download_ga = #{watchfaceDownloadGa,jdbcType=VARCHAR},
+      watchface$biaoqian_ga = #{watchfaceBiaoqianGa,jdbcType=VARCHAR},
+      watchface$biaoqian_download_ga = #{watchfaceBiaoqianDownloadGa,jdbcType=VARCHAR},
+      watchface$biaoqian_delete_ga = #{watchfaceBiaoqianDeleteGa,jdbcType=VARCHAR},
+      watchface$category_delete_ga = #{watchfaceCategoryDeleteGa,jdbcType=VARCHAR},
+      watchface$category_download_ga = #{watchfaceCategoryDownloadGa,jdbcType=VARCHAR},
+      watchface_test$download_ga = #{watchfaceTestDownloadGa,jdbcType=VARCHAR},
+      watchface_test$biaoqian_download_ga = #{watchfaceTestBiaoqianDownloadGa,jdbcType=VARCHAR},
+      watchface_test$category_download_ga = #{watchfaceTestCategoryDownloadGa,jdbcType=VARCHAR},
+      watchface_test$delete_ga = #{watchfaceTestDeleteGa,jdbcType=VARCHAR},
+      watchface_test$biaoqian_delete_ga = #{watchfaceTestBiaoqianDeleteGa,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

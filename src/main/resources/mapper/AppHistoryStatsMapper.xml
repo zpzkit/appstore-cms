@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.AppHistoryStatsMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.AppHistoryStats">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="collect" jdbcType="INTEGER" property="collect" />
+    <result column="download_success" jdbcType="INTEGER" property="downloadSuccess" />
+    <result column="install_success" jdbcType="INTEGER" property="installSuccess" />
+    <result column="cancel_collect" jdbcType="INTEGER" property="cancelCollect" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, collect, download_success, install_success, cancel_collect
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from app_history_stats
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from app_history_stats
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.AppHistoryStats">
+    insert into app_history_stats (id, collect, download_success, 
+      install_success, cancel_collect)
+    values (#{id,jdbcType=INTEGER}, #{collect,jdbcType=INTEGER}, #{downloadSuccess,jdbcType=INTEGER}, 
+      #{installSuccess,jdbcType=INTEGER}, #{cancelCollect,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.AppHistoryStats">
+    insert into app_history_stats
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="collect != null">
+        collect,
+      </if>
+      <if test="downloadSuccess != null">
+        download_success,
+      </if>
+      <if test="installSuccess != null">
+        install_success,
+      </if>
+      <if test="cancelCollect != null">
+        cancel_collect,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="collect != null">
+        #{collect,jdbcType=INTEGER},
+      </if>
+      <if test="downloadSuccess != null">
+        #{downloadSuccess,jdbcType=INTEGER},
+      </if>
+      <if test="installSuccess != null">
+        #{installSuccess,jdbcType=INTEGER},
+      </if>
+      <if test="cancelCollect != null">
+        #{cancelCollect,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.model.AppHistoryStats">
+    update app_history_stats
+    <set>
+      <if test="collect != null">
+        collect = #{collect,jdbcType=INTEGER},
+      </if>
+      <if test="downloadSuccess != null">
+        download_success = #{downloadSuccess,jdbcType=INTEGER},
+      </if>
+      <if test="installSuccess != null">
+        install_success = #{installSuccess,jdbcType=INTEGER},
+      </if>
+      <if test="cancelCollect != null">
+        cancel_collect = #{cancelCollect,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.model.AppHistoryStats">
+    update app_history_stats
+    set collect = #{collect,jdbcType=INTEGER},
+      download_success = #{downloadSuccess,jdbcType=INTEGER},
+      install_success = #{installSuccess,jdbcType=INTEGER},
+      cancel_collect = #{cancelCollect,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

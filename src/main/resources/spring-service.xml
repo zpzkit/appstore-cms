@@ -23,7 +23,7 @@
 
 	<context:property-placeholder location="classpath:db.properties,classpath:config.properties" />
 	
-	<import resource="classpath:spring-shiro.xml"/>
+	<!--<import resource="classpath:spring-shiro.xml"/>-->
 	
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">

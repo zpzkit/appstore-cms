@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.AppRecSimMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.AppRecSim">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="recommend_similar" jdbcType="VARCHAR" property="recommendSimilar" />
+  </resultMap>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.AppRecSim">
+    insert into app_rec_sim (id, recommend_similar)
+    values (#{id,jdbcType=INTEGER}, #{recommendSimilar,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.AppRecSim">
+    insert into app_rec_sim
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="recommendSimilar != null">
+        recommend_similar,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="recommendSimilar != null">
+        #{recommendSimilar,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

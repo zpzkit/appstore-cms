@@ -1,16 +1,15 @@
 package com.mobvoi.appstore.cms.controller.sys;
 
-import com.mobvoi.appstore.cms.entity.SysMenuEntity;
-import com.mobvoi.appstore.cms.service.SysMenuService;
-import com.mobvoi.appstore.cms.utils.Constant;
-import com.mobvoi.appstore.cms.utils.PageUtils;
-import com.mobvoi.appstore.cms.utils.R;
-import com.mobvoi.appstore.cms.utils.RRException;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.mobvoi.appstore.model.sys.SysMenuEntity;
+import com.mobvoi.appstore.service.SysMenuService;
+import com.mobvoi.appstore.utils.Constant;
+import com.mobvoi.appstore.utils.PageUtils;
+import com.mobvoi.appstore.utils.R;
+import com.mobvoi.appstore.utils.RRException;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -144,9 +143,10 @@ public class SysMenuController extends AbstractController {
 	 */
 	@RequestMapping("/user")
 	public R user(){
-		List<SysMenuEntity> menuList = sysMenuService.getUserMenuList(getUserId());
+//		List<SysMenuEntity> menuList = sysMenuService.getUserMenuList(getUserId());
 		
-		return R.ok().put("menuList", menuList);
+//		return R.ok().put("menuList", menuList);
+    return R.ok();
 	}
 	
 	/**

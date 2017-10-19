@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.SpecialTopicMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.SpecialTopic">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="image_home" jdbcType="VARCHAR" property="imageHome" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+    <result column="show_order" jdbcType="INTEGER" property="showOrder" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="image_detail" jdbcType="VARCHAR" property="imageDetail" />
+    <result column="style" jdbcType="VARCHAR" property="style" />
+    <result column="platform" jdbcType="VARCHAR" property="platform" />
+    <result column="subtitle" jdbcType="VARCHAR" property="subtitle" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, title, description, image_home, is_deleted, show_order, time, image_detail, style, 
+    platform, subtitle
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from special_topic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from special_topic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.SpecialTopic">
+    insert into special_topic (id, title, description, 
+      image_home, is_deleted, show_order, 
+      time, image_detail, style, 
+      platform, subtitle)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{imageHome,jdbcType=VARCHAR}, #{isDeleted,jdbcType=BIT}, #{showOrder,jdbcType=INTEGER}, 
+      #{time,jdbcType=TIMESTAMP}, #{imageDetail,jdbcType=VARCHAR}, #{style,jdbcType=VARCHAR}, 
+      #{platform,jdbcType=VARCHAR}, #{subtitle,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.SpecialTopic">
+    insert into special_topic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="imageHome != null">
+        image_home,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="showOrder != null">
+        show_order,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="imageDetail != null">
+        image_detail,
+      </if>
+      <if test="style != null">
+        style,
+      </if>
+      <if test="platform != null">
+        platform,
+      </if>
+      <if test="subtitle != null">
+        subtitle,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="imageHome != null">
+        #{imageHome,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BIT},
+      </if>
+      <if test="showOrder != null">
+        #{showOrder,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imageDetail != null">
+        #{imageDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null">
+        #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="subtitle != null">
+        #{subtitle,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.model.SpecialTopic">
+    update special_topic
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="imageHome != null">
+        image_home = #{imageHome,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BIT},
+      </if>
+      <if test="showOrder != null">
+        show_order = #{showOrder,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imageDetail != null">
+        image_detail = #{imageDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="style != null">
+        style = #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null">
+        platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="subtitle != null">
+        subtitle = #{subtitle,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.model.SpecialTopic">
+    update special_topic
+    set title = #{title,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      image_home = #{imageHome,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=BIT},
+      show_order = #{showOrder,jdbcType=INTEGER},
+      time = #{time,jdbcType=TIMESTAMP},
+      image_detail = #{imageDetail,jdbcType=VARCHAR},
+      style = #{style,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=VARCHAR},
+      subtitle = #{subtitle,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

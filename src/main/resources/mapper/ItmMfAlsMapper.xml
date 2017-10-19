@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.ItmMfAlsMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.ItmMfAls">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="als_feats_ga" jdbcType="VARCHAR" property="alsFeatsGa" />
+    <result column="als_last_update_time_ga" jdbcType="VARCHAR" property="alsLastUpdateTimeGa" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, als_feats_ga, als_last_update_time_ga
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from itm_mf_als
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from itm_mf_als
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.ItmMfAls">
+    insert into itm_mf_als (id, als_feats_ga, als_last_update_time_ga
+      )
+    values (#{id,jdbcType=VARCHAR}, #{alsFeatsGa,jdbcType=VARCHAR}, #{alsLastUpdateTimeGa,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.ItmMfAls">
+    insert into itm_mf_als
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="alsFeatsGa != null">
+        als_feats_ga,
+      </if>
+      <if test="alsLastUpdateTimeGa != null">
+        als_last_update_time_ga,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="alsFeatsGa != null">
+        #{alsFeatsGa,jdbcType=VARCHAR},
+      </if>
+      <if test="alsLastUpdateTimeGa != null">
+        #{alsLastUpdateTimeGa,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.model.ItmMfAls">
+    update itm_mf_als
+    <set>
+      <if test="alsFeatsGa != null">
+        als_feats_ga = #{alsFeatsGa,jdbcType=VARCHAR},
+      </if>
+      <if test="alsLastUpdateTimeGa != null">
+        als_last_update_time_ga = #{alsLastUpdateTimeGa,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.model.ItmMfAls">
+    update itm_mf_als
+    set als_feats_ga = #{alsFeatsGa,jdbcType=VARCHAR},
+      als_last_update_time_ga = #{alsLastUpdateTimeGa,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.AppOrderMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.AppOrder">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="apk_package_name" jdbcType="VARCHAR" property="apkPackageName" />
+    <result column="appid" jdbcType="INTEGER" property="appid" />
+    <result column="version_code" jdbcType="INTEGER" property="versionCode" />
+    <result column="user_wwid" jdbcType="VARCHAR" property="userWwid" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="currency" jdbcType="VARCHAR" property="currency" />
+    <result column="developer_wwid" jdbcType="VARCHAR" property="developerWwid" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, apk_package_name, appid, version_code, user_wwid, price, currency, developer_wwid, 
+    time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from app_order
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from app_order
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.AppOrder">
+    insert into app_order (id, apk_package_name, appid, 
+      version_code, user_wwid, price, 
+      currency, developer_wwid, time
+      )
+    values (#{id,jdbcType=VARCHAR}, #{apkPackageName,jdbcType=VARCHAR}, #{appid,jdbcType=INTEGER}, 
+      #{versionCode,jdbcType=INTEGER}, #{userWwid,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{currency,jdbcType=VARCHAR}, #{developerWwid,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.AppOrder">
+    insert into app_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="apkPackageName != null">
+        apk_package_name,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="versionCode != null">
+        version_code,
+      </if>
+      <if test="userWwid != null">
+        user_wwid,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="currency != null">
+        currency,
+      </if>
+      <if test="developerWwid != null">
+        developer_wwid,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="apkPackageName != null">
+        #{apkPackageName,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=INTEGER},
+      </if>
+      <if test="versionCode != null">
+        #{versionCode,jdbcType=INTEGER},
+      </if>
+      <if test="userWwid != null">
+        #{userWwid,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null">
+        #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="developerWwid != null">
+        #{developerWwid,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.model.AppOrder">
+    update app_order
+    <set>
+      <if test="apkPackageName != null">
+        apk_package_name = #{apkPackageName,jdbcType=VARCHAR},
+      </if>
+      <if test="appid != null">
+        appid = #{appid,jdbcType=INTEGER},
+      </if>
+      <if test="versionCode != null">
+        version_code = #{versionCode,jdbcType=INTEGER},
+      </if>
+      <if test="userWwid != null">
+        user_wwid = #{userWwid,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="currency != null">
+        currency = #{currency,jdbcType=VARCHAR},
+      </if>
+      <if test="developerWwid != null">
+        developer_wwid = #{developerWwid,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.model.AppOrder">
+    update app_order
+    set apk_package_name = #{apkPackageName,jdbcType=VARCHAR},
+      appid = #{appid,jdbcType=INTEGER},
+      version_code = #{versionCode,jdbcType=INTEGER},
+      user_wwid = #{userWwid,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      currency = #{currency,jdbcType=VARCHAR},
+      developer_wwid = #{developerWwid,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

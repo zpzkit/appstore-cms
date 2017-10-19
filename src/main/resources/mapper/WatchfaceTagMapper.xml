@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.WatchfaceTagMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.WatchfaceTag">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="appid" jdbcType="INTEGER" property="appid" />
+    <result column="tag_name" jdbcType="VARCHAR" property="tagName" />
+    <result column="weight" jdbcType="INTEGER" property="weight" />
+  </resultMap>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.WatchfaceTag">
+    insert into watchface_tag (id, appid, tag_name, 
+      weight)
+    values (#{id,jdbcType=INTEGER}, #{appid,jdbcType=INTEGER}, #{tagName,jdbcType=VARCHAR}, 
+      #{weight,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.WatchfaceTag">
+    insert into watchface_tag
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="appid != null">
+        appid,
+      </if>
+      <if test="tagName != null">
+        tag_name,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="appid != null">
+        #{appid,jdbcType=INTEGER},
+      </if>
+      <if test="tagName != null">
+        #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

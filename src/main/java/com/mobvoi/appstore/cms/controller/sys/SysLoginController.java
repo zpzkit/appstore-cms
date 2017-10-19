@@ -1,14 +1,13 @@
 package com.mobvoi.appstore.cms.controller.sys;
 
-import com.mobvoi.appstore.cms.utils.R;
-import com.mobvoi.appstore.cms.utils.ShiroUtils;
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mobvoi.appstore.utils.R;
+import com.mobvoi.appstore.utils.ShiroUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;

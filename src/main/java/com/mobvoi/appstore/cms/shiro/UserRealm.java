@@ -1,9 +1,9 @@
 package com.mobvoi.appstore.cms.shiro;
 
-import com.mobvoi.appstore.cms.entity.SysMenuEntity;
-import com.mobvoi.appstore.cms.entity.SysUserEntity;
-import com.mobvoi.appstore.cms.service.SysMenuService;
-import com.mobvoi.appstore.cms.service.SysUserService;
+import com.mobvoi.appstore.model.sys.SysMenuEntity;
+import com.mobvoi.appstore.model.sys.SysUserEntity;
+import com.mobvoi.appstore.service.SysMenuService;
+import com.mobvoi.appstore.service.SysUserService;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;

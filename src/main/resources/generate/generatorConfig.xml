@@ -46,10 +46,6 @@
 
         <!--对应数据库表名 -->
 
-   <!--     <table tableName="user_media" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
-
-        </table>-->
-        <!--<table tableName="user_media_group" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
         <table tableName="app" domainObjectName="AppMap" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
             <columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="logo_url" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -69,47 +65,119 @@
             <columnOverride column="apk_md5" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="wear_apk_md5" javaType="java.lang.String" jdbcType="VARCHAR" />
         </table>
-        <!--<table tableName="comments" domainObjectName="Comments" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >-->
-            <!--<columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />-->
-        <!--</table>-->
-
-        <!--<table tableName="support_watch_model" domainObjectName="SupportWatchModel" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >-->
-        <!--</table>-->
-        <!--<table tableName="category" domainObjectName="Category" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >-->
-        <!--</table>-->
-        <!--<table tableName="brand_recommend" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
-        <!--<table tableName="user_article_group" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
-
-        <!--</table>-->
-
-        <!--<table tableName="ptb_enterprise_iden" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />
-        <table tableName="ptb_person_iden" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />
-        <table tableName="ptb_position_iden" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />
-        <table tableName="ptb_upload_pic" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
-        <!--<table tableName="media_channel" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" />-->
-        <!--<table tableName="media_channel_detail" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">-->
-        <!--<table tableName="wb_topic" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">-->
-
-        <!--</table>-->
-<!--
-
-
-        <table tableName="user_role" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
-
+        <table tableName="app_history_stats" domainObjectName="AppHistoryStats" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
         </table>
-        <table tableName="inactiveuser" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
 
+        <table tableName="app_order" domainObjectName="AppOrder" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
         </table>
-        <table tableName="role" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
 
+        <table tableName="app_rec_sim" domainObjectName="AppRecSim" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
         </table>
-        <table tableName="role_permission" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
 
+        <table tableName="app_recommend" domainObjectName="AppRecommend" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="recommend_similar" javaType="java.lang.String" jdbcType="VARCHAR" />
         </table>
-        <table tableName="permission" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false">
 
+        <table tableName="app_tag" domainObjectName="AppTag" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
         </table>
--->
+        <table tableName="appstore_topic_list" domainObjectName="AppstoreTopicList" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+        <table tableName="aw_hot_query" domainObjectName="AwHotQuery" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="data" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
 
+        <table tableName="banner" domainObjectName="Banner" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="image" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="applist" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="title" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="position" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="platform" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="link_url" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+
+        <table tableName="banner_show_count" domainObjectName="BannerShowCount" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+
+        <table tableName="category" domainObjectName="Category" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+
+        <table tableName="comments" domainObjectName="Comments" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="content" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+
+        <table tableName="developer" domainObjectName="Developer" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+
+        <table tableName="download" domainObjectName="Download" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+
+        <table tableName="hot_Download" domainObjectName="HotDownload" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="applist" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="hot_query" domainObjectName="HotQuery" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+        <table tableName="itm_mf_als" domainObjectName="ItmMfAls" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="als_feats_ga" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="als_last_update_time_ga" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="op_tag_topic" domainObjectName="OpTagTopic" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+        <table tableName="preload" domainObjectName="Preload" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+        <table tableName="rec_sim_apps" domainObjectName="RecSimApps" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="recommend_similar" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="sim_watchface" domainObjectName="SimWatchface" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="similar" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="last_update_time" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+
+        <table tableName="snapshot_pic" domainObjectName="SnapshotPic" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="pic_url" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="special_topic" domainObjectName="SpecialTopic" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="title" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="description" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="image_home" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="image_detail" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="style" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="platform" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="subtitle" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+
+        <table tableName="special_topic_content" domainObjectName="SpecialTopicContent" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="applist" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="support_watch_model" domainObjectName="SupportWatchModel" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+        <table tableName="tag" domainObjectName="Tag" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+
+        <table tableName="tbl_apk" domainObjectName="TblApk" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="pic_url" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="thumbnails" domainObjectName="Thumbnails" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="url" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="user_mf_als" domainObjectName="UserMfAls" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="als_feats_ga" javaType="java.lang.String" jdbcType="VARCHAR" />
+            <columnOverride column="als_last_update_time_ga" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="user_payment_history" domainObjectName="UserPaymentHistory" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+        <table tableName="user_profile_watchface" domainObjectName="UserProfileWatchface" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="timestamp" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="user_rec_apps" domainObjectName="UserRecApps" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+        <table tableName="watchface_compaign" domainObjectName="WatchfaceCompaign" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+        </table>
+        <table tableName="watchface_tag" domainObjectName="WatchfaceTag" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="tag_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
+        <table tableName="weekly_recommend" domainObjectName="WeeklyRecommend" enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" >
+            <columnOverride column="image" javaType="java.lang.String" jdbcType="VARCHAR" />
+        </table>
     </context>
 </generatorConfiguration>

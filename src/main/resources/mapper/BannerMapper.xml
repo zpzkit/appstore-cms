@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.BannerMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.Banner">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="time" jdbcType="INTEGER" property="time" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="applist" jdbcType="VARCHAR" property="applist" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="platform" jdbcType="VARCHAR" property="platform" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+    <result column="show_order" jdbcType="INTEGER" property="showOrder" />
+    <result column="link_url" jdbcType="VARCHAR" property="linkUrl" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, time, image, applist, title, position, platform, is_deleted, show_order, link_url
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from banner
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from banner
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.Banner">
+    insert into banner (id, time, image, 
+      applist, title, position, 
+      platform, is_deleted, show_order, 
+      link_url)
+    values (#{id,jdbcType=INTEGER}, #{time,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR}, 
+      #{applist,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR}, 
+      #{platform,jdbcType=VARCHAR}, #{isDeleted,jdbcType=BIT}, #{showOrder,jdbcType=INTEGER}, 
+      #{linkUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.Banner">
+    insert into banner
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="applist != null">
+        applist,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="position != null">
+        position,
+      </if>
+      <if test="platform != null">
+        platform,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="showOrder != null">
+        show_order,
+      </if>
+      <if test="linkUrl != null">
+        link_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="applist != null">
+        #{applist,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null">
+        #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BIT},
+      </if>
+      <if test="showOrder != null">
+        #{showOrder,jdbcType=INTEGER},
+      </if>
+      <if test="linkUrl != null">
+        #{linkUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.model.Banner">
+    update banner
+    <set>
+      <if test="time != null">
+        time = #{time,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="applist != null">
+        applist = #{applist,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="platform != null">
+        platform = #{platform,jdbcType=VARCHAR},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=BIT},
+      </if>
+      <if test="showOrder != null">
+        show_order = #{showOrder,jdbcType=INTEGER},
+      </if>
+      <if test="linkUrl != null">
+        link_url = #{linkUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.model.Banner">
+    update banner
+    set time = #{time,jdbcType=INTEGER},
+      image = #{image,jdbcType=VARCHAR},
+      applist = #{applist,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      position = #{position,jdbcType=VARCHAR},
+      platform = #{platform,jdbcType=VARCHAR},
+      is_deleted = #{isDeleted,jdbcType=BIT},
+      show_order = #{showOrder,jdbcType=INTEGER},
+      link_url = #{linkUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

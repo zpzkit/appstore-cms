@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mobvoi.appstore.mapper.WeeklyRecommendMapper">
+  <resultMap id="BaseResultMap" type="com.mobvoi.appstore.model.WeeklyRecommend">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="editor_comment" jdbcType="VARCHAR" property="editorComment" />
+    <result column="rec_time" jdbcType="INTEGER" property="recTime" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, editor_comment, rec_time, image
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from weekly_recommend
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from weekly_recommend
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mobvoi.appstore.model.WeeklyRecommend">
+    insert into weekly_recommend (id, editor_comment, rec_time, 
+      image)
+    values (#{id,jdbcType=INTEGER}, #{editorComment,jdbcType=VARCHAR}, #{recTime,jdbcType=INTEGER}, 
+      #{image,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mobvoi.appstore.model.WeeklyRecommend">
+    insert into weekly_recommend
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="editorComment != null">
+        editor_comment,
+      </if>
+      <if test="recTime != null">
+        rec_time,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="editorComment != null">
+        #{editorComment,jdbcType=VARCHAR},
+      </if>
+      <if test="recTime != null">
+        #{recTime,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mobvoi.appstore.model.WeeklyRecommend">
+    update weekly_recommend
+    <set>
+      <if test="editorComment != null">
+        editor_comment = #{editorComment,jdbcType=VARCHAR},
+      </if>
+      <if test="recTime != null">
+        rec_time = #{recTime,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mobvoi.appstore.model.WeeklyRecommend">
+    update weekly_recommend
+    set editor_comment = #{editorComment,jdbcType=VARCHAR},
+      rec_time = #{recTime,jdbcType=INTEGER},
+      image = #{image,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

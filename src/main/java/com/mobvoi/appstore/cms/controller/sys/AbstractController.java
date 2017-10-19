@@ -1,8 +1,8 @@
 package com.mobvoi.appstore.cms.controller.sys;
 
-import com.mobvoi.appstore.cms.entity.SysUserEntity;
-import com.mobvoi.appstore.cms.utils.ShiroUtils;
 
+import com.mobvoi.appstore.model.sys.SysUserEntity;
+import com.mobvoi.appstore.utils.ShiroUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

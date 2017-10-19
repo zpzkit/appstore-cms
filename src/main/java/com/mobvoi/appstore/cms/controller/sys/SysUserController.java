@@ -1,16 +1,14 @@
 package com.mobvoi.appstore.cms.controller.sys;
 
-import com.mobvoi.appstore.cms.service.SysUserRoleService;
-import com.mobvoi.appstore.cms.entity.SysUserEntity;
-import com.mobvoi.appstore.cms.service.SysUserService;
-import com.mobvoi.appstore.cms.utils.PageUtils;
-import com.mobvoi.appstore.cms.utils.R;
-import com.mobvoi.appstore.cms.utils.ShiroUtils;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.mobvoi.appstore.model.sys.SysUserEntity;
+import com.mobvoi.appstore.service.SysUserRoleService;
+import com.mobvoi.appstore.service.SysUserService;
+import com.mobvoi.appstore.utils.PageUtils;
+import com.mobvoi.appstore.utils.R;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -61,7 +59,8 @@ public class SysUserController extends AbstractController {
 	 */
 	@RequestMapping("/info")
 	public R info(){
-		return R.ok().put("user", getUser());
+//		return R.ok().put("user", getUser());
+		return R.ok().put("user", "");
 	}
 	
 	/**
@@ -69,25 +68,26 @@ public class SysUserController extends AbstractController {
 	 */
 	@RequestMapping("/password")
 	public R password(String password, String newPassword){
-		if(StringUtils.isBlank(newPassword)){
-			return R.error("新密码不为能空");
-		}
-		
-		//sha256加密
-		password = new Sha256Hash(password).toHex();
-		//sha256加密
-		newPassword = new Sha256Hash(newPassword).toHex();
-				
-		//更新密码
-		int count = sysUserService.updatePassword(getUserId(), password, newPassword);
-		if(count == 0){
-			return R.error("原密码不正确");
-		}
-		
-		//退出
-		ShiroUtils.logout();
-		
-		return R.ok();
+	  return R.ok();
+//		if(StringUtils.isBlank(newPassword)){
+//			return R.error("新密码不为能空");
+//		}
+//
+//		//sha256加密
+//		password = new Sha256Hash(password).toHex();
+//		//sha256加密
+//		newPassword = new Sha256Hash(newPassword).toHex();
+//
+//		//更新密码
+//		int count = sysUserService.updatePassword(getUserId(), password, newPassword);
+//		if(count == 0){
+//			return R.error("原密码不正确");
+//		}
+//
+//		//退出
+//		ShiroUtils.logout();
+//
+//		return R.ok();
 	}
 	
 	/**
@@ -144,16 +144,17 @@ public class SysUserController extends AbstractController {
 	@RequestMapping("/delete")
 	@RequiresPermissions("sys:user:delete")
 	public R delete(@RequestBody Long[] userIds){
-		if(ArrayUtils.contains(userIds, 1L)){
-			return R.error("系统管理员不能删除");
-		}
-		
-		if(ArrayUtils.contains(userIds, getUserId())){
-			return R.error("当前用户不能删除");
-		}
-		
-		sysUserService.deleteBatch(userIds);
-		
-		return R.ok();
+	  return R.ok();
+//		if(ArrayUtils.contains(userIds, 1L)){
+//			return R.error("系统管理员不能删除");
+//		}
+//
+//		if(ArrayUtils.contains(userIds, getUserId())){
+//			return R.error("当前用户不能删除");
+//		}
+//
+//		sysUserService.deleteBatch(userIds);
+//
+//		return R.ok();
 	}
 }
